@@ -1,6 +1,6 @@
 def IMAGE_VERSION
 pipeline {
-	agent any
+	agent { label 'nodejs' }
 	stages {
         stage("Checkout") {
             steps {
@@ -8,7 +8,6 @@ pipeline {
             }
         }
         stage('Docker Build') {
-            agent any
             steps {
                 script {
                     IMAGE_VERSION = sh(script: "head -n 1 Dockerfile | sed 's/#//'", returnStdout: true).trim()
