@@ -1,6 +1,6 @@
 def IMAGE_VERSION
 pipeline {
-	agent { label 'nodejs' }
+	agent any
 	stages {
         stage("Checkout") {
             steps {
